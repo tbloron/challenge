@@ -1,0 +1,126 @@
+#shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue;
+    color: white;
+}
+
+.header-link {
+    color: white;
+    font-size: 1.5em;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.header-basket {
+    color: white;
+    font-size: 1.5em;
+    background-color: transparent;
+    text-decoration: underline;
+    border: none;
+}
+
+.login-header {
+    background-color: blue;
+    color: white;
+    width: 100%;
+    padding: 10px;
+}
+
+.login-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 20%;
+    margin: 10px;
+}
+
+.product-footer {
+    padding: 2px 20px;
+}
+
+.product-delete {
+    font-size: 20px;
+    border: none;
+    background-color: red;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.product-buy {
+    font-size: 20px;
+    border: none;
+    background-color: green;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.inputField {
+    font-size: 20px;
+}
+
+.product-add {
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 20px;
+    cursor: pointer;
+}
+
+.editButton {
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 5px 5px;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.deleteButton {
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 5px 5px;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-table {
+    width: 80%;
+    border: 1px solid #dddddd;
+    font-size: 20px;
+}
+
+.order-table-header {
+    padding: 10px;
+    background-color: #dddddd;
+}

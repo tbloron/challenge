@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Order{% endblock title %}
+{% block header %}
+  {% include 'header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+    <div class="order-header">
+        {% if not order.ordered %}
+        <h2>Order #{{ order.pk }} {{ order.user.email }} started at {{ order.created_at }}</h2>
+        {% else %}
+        <h2>Order #{{ order.pk }} {{ order.user.email }} validated at {{ order.created_at }}</h2>
+        {% endif %}
+    </div>
+    {% if not order.ordered and order_items.count %}
+    <div class="order-header">
+        <button class="editButton" onclick="validateOrder('{{ order.pk }}')">Validate</button>
+    </div>
+    {% endif %}
+    <table class="order-table" id="productTable">
+        <tr class="order-table-header">
+            <th style="text-align: left; width: 20%;">Product</th>
+            <th style="text-align: left;">Quantity</th>
+            <th style="text-align: left;">Amount</th>
+            {% if not order.ordered %}
+            <th style="text-align: left;">Actions</th>
+            {% endif %}
+        </tr>
+        {% for item in order_items %}
+        <tr class="order-row" pk="{{ item.pk }}">
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.amount }}</td>
+            {% if not order.ordered %}
+            <td style="text-align: left;">
+                <button type="button" class="editButton" onclick="decrementOrderItem('{{ order.pk }}', '{{ item.pk }}')">-1</button>
+                <button type="button" class="editButton" onclick="incrementOrderItem('{{ order.pk }}', '{{ item.pk }}')">+1</button>
+                <button type="button" class="deleteButton" onclick="deleteOrderItem('{{ order.pk }}', '{{ item.pk }}')">Delete</button>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Total is {{ order.amount }}</h1>
+{% endblock content %}
+
+{% block javascript %}
+   {% load static %}
+   <script src="{% static 'js/shop.js' %}"></script>
+{% endblock javascript %}

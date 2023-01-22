@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Orders{% endblock title %}
+{% block header %}
+  {% include 'header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+    <div class="order-header">
+        <h1>Orders</h1>
+    </div>
+    <table class="order-table" id="productTable">
+        <tr class="order-table-header">
+            <th style="text-align: left; width: 10%">ID</th>
+            <th style="text-align: left;">Customer</th>
+            <th style="text-align: left;">Quantity</th>
+            <th style="text-align: left;">Total</th>
+            <th style="text-align: left; width: 20%;">Created at</th>
+            <th style="text-align: left;">Ordered at</th>
+        </tr>
+        {% for order in order_list %}
+        <tr class="order-row" pk="{{ order.pk }}">
+            <td><a href="{{ order.get_absolute_url }}">{{ order.pk }}</a></td>
+            <td>{{ order.user.email }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.amount }}</td>
+            <td>{{ order.created_at }}</td>
+            <td>{{ order.ordered_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
+
+{% block javascript %}
+   {% load static %}
+   <script src="{% static 'js/shop.js' %}"></script>
+{% endblock javascript %}

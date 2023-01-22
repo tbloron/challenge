@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Shop{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+  </head>
+  <body>
+    {% block header %}
+    {% endblock header %}
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% block javascript %}
+    {% endblock javascript %}
+  </body>
+</html>

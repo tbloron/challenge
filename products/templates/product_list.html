@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock title %}
+{% block header %}
+  {% include 'header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+    <div class="product-header">
+        <h1>Products</h1>
+        {% if user.is_staff %}
+        <label>Name</label>
+        <input type="text" id="name" class="inputField">
+        <label>Price</label>
+        <input type="text" id="price" class="inputField">
+        <button class="product-add" id="addProduct" mode="create" onclick="createProduct()">Add new product</button>
+        {% endif %}
+    </div>
+
+    <div class="product-container">
+        {% for product in product_list %}
+           <div class="product-card">
+               <div class="product-footer">
+                   {% if user.is_staff %}
+                   <h2><a href="{{ product.get_absolute_url }}">{{ product.name}}</a></h2>
+                   {% else %}
+                   <h2>{{ product.name}}</h2>
+                   {% endif %}
+                   <h3>Price: {{ product.price}}</h3>
+                   {% if user.is_staff %}
+                   <button class="product-delete" onclick="deleteProduct('{{ product.pk }}')">Delete</button>
+                   {% else %}
+                   <button class="product-buy" onclick="addProductToOrder('{{ product.pk }}')">Buy</button>
+                   {% endif %}
+               </div>
+           </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+   {% load static %}
+   <script src="{% static 'js/shop.js' %}"></script>
+{% endblock javascript %}

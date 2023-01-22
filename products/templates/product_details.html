@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock title %}
+{% block header %}
+  {% include 'header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+    <div class="product_header">
+        <form style="display: flex; flex-direction: column; padding: 30px;">
+            <label>Name</label>
+            <input type="text"  id="productName" class="inputField" value="{{ product.name }}">
+            <label>Price</label>
+            <input type="text" id="productPrice" class="inputField" value="{{ product.price }}">
+            <button class="editButton"
+                    onclick="updateProduct('{{ product.pk }}')">Update</button>
+        </form>
+    </div>
+
+{% endblock content %}
+
+{% block javascript %}
+   {% load static %}
+   <script src="{% static '/js/shop.js' %}"></script>
+{% endblock javascript %}
