@@ -5,6 +5,13 @@ pipeline {
     }
 
     stages {
+
+        stage("Environment") {
+            sh """
+            env | sort
+            """
+        }
+
         stage("Checkout") {
             steps {
                 checkout scm
