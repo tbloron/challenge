@@ -4,6 +4,10 @@
 
 Web application built by django framework.
 
+## Jenkinsfile
+
+Add Jenkinsfile.
+
 ## Overview
 The **shop** project contains three applications:
   * **users**, for the management of users (both staff and customer)
