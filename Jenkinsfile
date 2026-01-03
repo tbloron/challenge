@@ -7,9 +7,11 @@ pipeline {
     stages {
 
         stage("Environment") {
-            sh """
-            env | sort
-            """
+            steps {
+               sh """
+               env | sort
+               """
+            }
         }
 
         stage("Checkout") {
