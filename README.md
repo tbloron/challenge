@@ -9,6 +9,7 @@ Web application built by django framework.
 Add Jenkinsfile.
 Start automatically pipeline on push to Git.
 Top.
+Ca marche ?
 
 ## Overview
 The **shop** project contains three applications:
